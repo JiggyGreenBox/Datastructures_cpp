@@ -7,6 +7,7 @@ Quick guide for C++ DS
 * [Left Right view tree](#left-right-view-tree)
 * [Top Bot view tree](#top-bot-view-tree)
 * [Level-Order Traversal](#level-order-traversal)
+* [Height of a Binary Tree](#height-of-binary-tree)
 
 
 
@@ -116,4 +117,18 @@ void level_order_traversal(TreeNode *root) {
 }
 ```
 
+### Height of Binary Tree
+```cpp
+int height(TreeNode *node) {
+
+    if (node == NULL)
+        // if counting starts from 0, return -1
+        // else if counting starts from 1 return 1
+        return -1;
+
+    int lhs = height(node->left);
+    int rhs = height(node->right);
+    return std::max(lhs, rhs) + 1;
+}
+```
 
