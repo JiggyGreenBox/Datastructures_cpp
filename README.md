@@ -1,8 +1,16 @@
 # Datastructures_cpp
 Quick guide for C++ DS
 
-### Binary tree
-Binary tree traversals:
+## Binary tree
+
+* [Binary tree traversals](#binary-tree-traversals)
+* [Left Right view tree](#left-right-view-tree)
+* [Top Bot view tree](#top-bot-view-tree)
+* [Level-Order Traversal](#level-order-traversal)
+
+
+
+### Binary tree traversals
 ```cpp
 void inOrderTraversal(TreeNode *node) {
     if(node == NULL) {
@@ -32,7 +40,7 @@ void postOrderTraversal(TreeNode *node) {
 }
 ```
 
-Left/Right view tree:
+### Left Right view tree
 ```cpp
 int max_level = -1;
 void left_view(TreeNode *node, int& max_level, int level) {
@@ -52,7 +60,7 @@ void left_view(TreeNode *node, int& max_level, int level) {
 }
 ```
 
-Top/Bot view tree:
+### Top Bot view tree
 ```cpp
 void top_view(TreeNode *node, int level, int bias, std::map<int, std::pair<char,int>> &umap) {
 
@@ -80,6 +88,31 @@ void bot_view(TreeNode *node, int level, int bias, std::map<int, std::pair<char,
 
     bot_view(node->left, level+1, bias-1, umap);
     bot_view(node->right, level+1, bias+1, umap);
+}
+```
+
+### Level-Order Traversal
+```cpp
+void level_order_traversal(TreeNode *root) {
+
+    if (root == NULL)
+        return;
+
+    std::queue<TreeNode*> q;
+    q.push(root);
+
+    TreeNode *curr;
+
+    while(!q.empty()) {
+        curr = q.front();
+        std::cout << curr->val << std::endl;
+        q.pop();
+
+        if (curr->left != NULL)
+            q.push(curr->left);
+        if (curr->right != NULL)
+            q.push(curr->right);
+    } 
 }
 ```
 
