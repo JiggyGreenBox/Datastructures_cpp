@@ -36,18 +36,50 @@ Left/Right view tree:
 ```cpp
 int max_level = -1;
 void left_view(TreeNode *node, int& max_level, int level) {
-    if (node == NULL) {
+    if (node == NULL) 
         return;
-    }
-    if (max_level < level) {
+        
+    // every level print once
+    if (max_level < level)
         std::cout << node->val << std::endl;
         max_level = level;
-    }
+    
     left_view(node->left, max_level, level + 1);
     left_view(node->right, max_level, level + 1);
     
     //right_view(node->right, max_level, level + 1);
     //right_view(node->left, max_level, level + 1);
+}
+```
+
+Top/Bot view tree:
+```cpp
+void top_view(TreeNode *node, int level, int bias, std::map<int, std::pair<char,int>> &umap) {
+
+    if (node == NULL)
+        return;
+
+    // lower level means the node is higher
+    // replace with lower level
+    if (umap.count(bias) == 0 || umap[bias].second > level)
+        umap[bias] = std::make_pair(node->val, level);
+
+    top_view(node->left, level+1, bias-1, umap);
+    top_view(node->right, level+1, bias+1, umap);
+}
+
+void bot_view(TreeNode *node, int level, int bias, std::map<int, std::pair<char,int>> &umap) {
+
+    if (node == NULL)
+        return;
+
+    // higher level means the node is lower
+    // replace with higher level
+    if (umap.count(bias) == 0 || umap[bias].second < level)
+        umap[bias] = std::make_pair(node->val, level);
+
+    bot_view(node->left, level+1, bias-1, umap);
+    bot_view(node->right, level+1, bias+1, umap);
 }
 ```
 
