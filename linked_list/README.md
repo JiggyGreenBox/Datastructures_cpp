@@ -6,8 +6,10 @@
 
 ### Reverse a Linked List
 ```cpp
-// 1-2-3-null
-// 3-2-1-null
+// 1->2->3->null
+// 3->2->1->null
+// Prev->Head->NextNode
+// P->H->N
 ListNode *prev = NULL;
 
 while (head != NULL) {
