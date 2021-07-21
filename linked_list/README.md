@@ -1,6 +1,7 @@
 # Linked List
 
 * [Reverse a Linked List](#reverse-a-linked-list)
+* [Middle of a Linked List](#reverse-a-linked-list)
 
 
 
@@ -21,5 +22,16 @@ while (head != NULL) {
     head->next = prev;
     prev = head;
     head = next_node;
+}
+```
+
+### Middle of a Linked List
+```cpp
+ListNode *slow = head;
+ListNode *fast = head;
+
+while(fast != NULL && fast->next != NULL){
+    slow = slow->next;
+    fast = fast->next->next;
 }
 ```
