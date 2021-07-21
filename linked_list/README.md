@@ -4,6 +4,7 @@
 * [Middle of a Linked List](#reverse-a-linked-list)
 * [Merge 2 Sorted Linked Lists](#merge-2-sorted-linked-lists)
 * [Remove Nth From End of Linked List](#remove-nth-from-end-of-linked-list)
+* [Delete Node From Linked List](#delete-node-from-linked-list)
 
 
 
@@ -89,4 +90,20 @@ first->val = first->next->val;
 first->next = first->next->next;
 
 return dummy->next;
+```
+
+### Delete Node From Linked List
+```cpp
+int remove_n = 2;
+
+while(head != NULL) {
+    if (head->val == remove_n) {
+        head->val = head->next->val;
+        head->next = head->next->next;
+    }
+    head = head->next;
+}
+// if last node is to be deleted
+// check if head->next is null 
+// need reference to prev, and set prev->next = NULL
 ```
