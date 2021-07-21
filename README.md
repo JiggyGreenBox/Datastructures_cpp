@@ -1,5 +1,5 @@
 # Datastructures_cpp
 Quick guide for C++ DS
-* [Linked List](/binary_tree)
-* [Binary Tree](/linked_list)
+* [Linked List](/linked_list)
+* [Binary Tree](/binary_tree)
 
