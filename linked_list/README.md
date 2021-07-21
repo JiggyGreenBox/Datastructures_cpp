@@ -3,6 +3,7 @@
 * [Reverse a Linked List](#reverse-a-linked-list)
 * [Middle of a Linked List](#reverse-a-linked-list)
 * [Merge 2 Sorted Linked Lists](#merge-2-sorted-linked-lists)
+* [Remove Nth From End of Linked List](#remove-nth-from-end-of-linked-list)
 
 
 
@@ -63,4 +64,29 @@ while(h2 != NULL){
     curr_node->next = h2;
     h2 = h2->next;
 }
+```
+
+### Remove Nth From End of Linked List
+```cpp
+ListNode *dummy = new ListNode(-1);
+dummy->next = head;
+
+ListNode *first = head;
+ListNode *second = head;
+
+int remove_n = 2;
+for(int i=1; i< remove_n+1; i++) {
+    second = second->next;
+}
+
+while(second != NULL) {
+    first = first->next;
+    second = second->next;
+}
+
+// remove node operation
+first->val = first->next->val;
+first->next = first->next->next;
+
+return dummy->next;
 ```
