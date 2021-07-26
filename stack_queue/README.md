@@ -1,6 +1,7 @@
 # Stack and Queue
 
 * [Implement Stack using Array](#implement-stack-using-array)
+* [Implement Queue using Array](#implement-queue-using-array)
 
 
 ### Implement Stack using Array
@@ -20,4 +21,37 @@ public:
     int size();
     bool isFull();
 };
+```
+
+### Implement Queue using Array
+```cpp
+// capacity = 0
+// front = -1
+// rear = -1
+
+void myQueue::enqueue(int val) {
+    if(isFull()) {
+        return;
+    }
+    else if(empty()) {
+        front++;
+        rear++;
+        capacity++;
+    }
+    else {
+        rear = (rear+1) % max_size;
+        capacity++;
+    }
+    arr[rear] = val;
+}
+void myQueue::dequeue(){
+    if(!empty()){
+        front = (front+1) % max_size;
+        --capacity;
+        if(capacity == 0) {
+            front = -1;
+            rear = -1;
+        }
+    }
+}
 ```
