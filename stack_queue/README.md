@@ -2,6 +2,7 @@
 
 * [Implement Stack using Array](#implement-stack-using-array)
 * [Implement Queue using Array](#implement-queue-using-array)
+* [Valid Parenthesis](#valid-parenthesis)
 
 
 ### Implement Stack using Array
@@ -53,5 +54,41 @@ void myQueue::dequeue(){
             rear = -1;
         }
     }
+}
+```
+
+### Valid Parenthesis
+```cpp
+bool isBalanced(std::string str) {
+
+    std::stack<char> s;
+
+    for(char x: str) {
+
+        if( x=='[' || x=='{' || x=='(' ) {
+            s.push(x);
+        }
+        else if(x==']' || x=='}' || x==')') {
+            if(s.empty()){
+                return false;
+            }
+            if( (x==']') && (s.top()== '[')) {
+                s.pop();
+            }
+            else if((x==')') && (s.top()=='(')) {
+                s.pop();
+            }
+            else if((x=='}') && (s.top()=='{')) {
+                s.pop();
+            }
+            else {
+                s.push(x);
+            }
+        }
+    }
+
+    if(s.empty())
+        return true;
+    return false;
 }
 ```
