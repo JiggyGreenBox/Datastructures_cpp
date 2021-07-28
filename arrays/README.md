@@ -2,6 +2,7 @@
 
 * [Sort Arrays of 0s 1s 2s](#sort-arrays-of-0s-1s-2s)
 * [Missing and Repeating Number](#missing-and-repeating-numbers)
+* [Merge two sorted arrays in O(1)](#merge-two-sorted-arrays-in-o1)
 
 
 ### Sort Arrays of 0s 1s 2s
@@ -53,6 +54,8 @@ for(int i=1; i<count_arr.size(); i++) {
 }
 ```
 
+### Merge two sorted arrays in O(1)
+```cpp
 // Merge two sorted arrays in O(1)
 // 2 pointer swap and sort 2nd array
 
@@ -61,3 +64,4 @@ for(int i=1; i<count_arr.size(); i++) {
 // do while gap = 1
 // 2 pointer swap
 // NlogN
+```
