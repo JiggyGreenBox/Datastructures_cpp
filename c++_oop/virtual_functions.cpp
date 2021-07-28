@@ -45,6 +45,13 @@ public:
     }
 };
 
+class Bear: public Animal{
+public:
+    void eat(){
+        std::cout <<"I'm eating a bear food"<< std::endl;
+    }
+};
+
 void function1(Animal *xyz){
     xyz->eat();
 }
@@ -71,5 +78,24 @@ int main(){
     // virtual comment allows function1 to be reused
     // otherwise 3 functions for 3 classes
     function1(ptr);
+    
+    /*
+    Animal *cat;
+    Cat catObj;
+    cat = &catObj;
+
+    Animal *dog;
+    Dog dogObj;
+    dog = &dogObj;
+
+    std::vector<Animal*> vec;
+    vec.push_back(new Bear());
+    vec.push_back(cat);
+    vec.push_back(dog);
+
+    for(auto x: vec){
+        function1(x);
+    }
+    */
 }
 
