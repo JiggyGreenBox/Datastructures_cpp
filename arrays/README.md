@@ -52,3 +52,12 @@ for(int i=1; i<count_arr.size(); i++) {
     }
 }
 ```
+
+// Merge two sorted arrays in O(1)
+// 2 pointer swap and sort 2nd array
+
+// gap algorithm
+    // gap = ceil ( n1 + n2 / 2 )
+// do while gap = 1
+// 2 pointer swap
+// NlogN
