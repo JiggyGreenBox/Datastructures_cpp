@@ -3,6 +3,7 @@
 * [Sort Arrays of 0s 1s 2s](#sort-arrays-of-0s-1s-2s)
 * [Missing and Repeating Number](#missing-and-repeating-numbers)
 * [Merge two sorted arrays in O(1)](#merge-two-sorted-arrays-in-o1)
+* [Maximum Subarray Sum](#maximum-subarray-sum)
 
 
 ### Sort Arrays of 0s 1s 2s
@@ -64,4 +65,22 @@ for(int i=1; i<count_arr.size(); i++) {
 // do while gap = 1
 // 2 pointer swap
 // NlogN
+```
+
+### Maximum Subarray Sum
+```cpp
+std::vector<int> nums = {-2,-3,4,-1,-2,1,5,-3};
+
+int sum = 0;
+int maxi = INT_MIN;
+for(auto x : nums) {
+
+    sum += x;
+    maxi = std::max(maxi,sum);
+
+    if (sum < 0) { // only carryforward a net positive val, 4,-3 allowed,  4,-5 not
+        sum = 0;
+    }
+}
+std::cout << maxi << std::endl;
 ```
