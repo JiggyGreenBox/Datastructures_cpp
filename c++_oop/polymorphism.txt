@@ -1,0 +1,48 @@
+polymorphism
+		
+	Compile-time 						
+		
+		Function overload
+			add(int i)		
+			add(double d)
+			add(int i1, int i2)
+
+
+		operator overload
+			// add Complex c3 = c1 + c2
+			operator + (Object const &obj){
+				Complex res
+				...
+				return res	
+			}
+				
+
+			// copy Point p1 = p2
+			Point(const Point &P) { x=P.x; y=P.y; }
+
+			// cast to float
+			operator float() const {
+				return float(num) / float(den)
+			}
+
+			// cast to int
+			operator int() const {
+				return int(someval);
+			}
+
+		templates
+
+
+
+	Run-time polymorphism / over-riding
+		implemented using inheritance
+
+			Base class		-> function
+			Derived class	-> function
+
+			same function is implement differently in the derived class
+
+			* return type should be the same
+			* no of args should be the same
+			* datatype of arguments should be the same
+			everything should be the same
