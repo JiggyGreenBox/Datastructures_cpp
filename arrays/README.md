@@ -1,6 +1,7 @@
 # Arrays
 
 * [Sort Arrays of 0s 1s 2s](#sort-arrays-of-0s-1s-2s)
+* [Missing and Repeating Number](#missing-and-repeating-numbers)
 
 
 ### Sort Arrays of 0s 1s 2s
@@ -26,6 +27,28 @@ while(mid <= high) {
         std::swap(nums[mid],nums[high]);
         --high;
         break;
+    }
+}
+```
+
+### Missing and Repeating Numbers
+```cpp
+// using count array
+// O(N) + O(N)
+
+std::vector<int> nums = {4,3,6,2,1,1};
+std::vector<int> count_arr(nums.size(), 0); // count array
+
+for(int x : nums) {
+    count_arr[x]++;
+}
+
+for(int i=1; i<count_arr.size(); i++) {
+    if(count_arr[i] == 0) {
+        std::cout << "missing num: " << i << std::endl;
+    }
+    else if(count_arr[i] > 1) {
+        std::cout << "repeated num: " << i << std::endl;
     }
 }
 ```
