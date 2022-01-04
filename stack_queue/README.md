@@ -3,6 +3,7 @@
 * [Implement Stack using Array](#implement-stack-using-array)
 * [Implement Queue using Array](#implement-queue-using-array)
 * [Valid Parenthesis](#valid-parenthesis)
+* [Implement a Queue using stacks](#implement-a-queue-using-stacks)
 
 
 ### Implement Stack using Array
@@ -91,4 +92,48 @@ bool isBalanced(std::string str) {
         return true;
     return false;
 }
+```
+
+### Implement a queue using stacks
+```cpp
+class queue_using_stack{
+private:
+    std::stack<int> input;
+    std::stack<int> output;
+
+public:
+    void push(int x){
+        input.push(x);
+    }
+
+    int top(){
+        // top always got from output
+        if(!output.empty()){
+            return output.top();
+        }
+        else{
+            while(!input.empty()){
+                // push input into output
+                output.push(input.top());
+                input.pop();
+            }
+            return output.top();
+        }
+    }
+
+    int pop(){
+        // pop always done from output
+        if(!output.empty()){
+            output.pop();
+        }
+        else{
+            while(!input.empty()){
+                // push input into output
+                output.push(input.top());
+                input.pop();
+            }
+            output.pop();
+        }
+    }
+};
 ```
