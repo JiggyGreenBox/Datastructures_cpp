@@ -1,0 +1,112 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+#define print(x) std::cout << x << std::endl;
+
+using namespace std;
+
+class A{
+public:
+
+    int a,b;
+    A(int a, int b){
+        this->a = a;
+        this->b = b;
+    }
+
+    int getSum(){
+        return (a+b);
+    }
+};
+
+int main(){
+
+    A obj1(3,7);
+    A *ptr;
+    ptr = &obj1;
+    //*ptr.a = 5;   // error
+    (*ptr).a = 15;  // valid
+    //ptr->a = 5;   // valid
+    print(obj1.getSum());
+    return 0;
+}
+
+
+Access
+```cpp
+    A obj1(3,7);
+    A *ptr;
+    ptr = &obj1;
+    //*ptr.a = 5;   // error
+    (*ptr).a = 15;  // valid
+    //ptr->a = 5;   // valid
+    print(obj1.getSum());
+```
+
+
+
+
+friend function
+
+    #include <iostream>
+    #include <vector>
+    #include <string>
+
+    #define print(x) std::cout << x << std::endl;
+
+    using namespace std;
+
+    class A{
+        int a;
+    public:
+        A(){
+            a = 5;
+        }
+
+        friend void modify();
+    };
+
+    void modify(){
+        A obj1;
+        print("Private memeber of class A" << obj1.a)
+    }
+
+    int main(){
+
+        A obj1;
+        modify();
+        return 0;
+    }
+
+
+friend function 2
+    #include <iostream>
+    #include <vector>
+    #include <string>
+
+    #define print(x) std::cout << x << std::endl;
+
+    using namespace std;
+
+    class Distance{
+    private:
+        int meter;
+        //friend int addFive(Distance);   // works here
+
+    public:
+        Distance() { meter=0;}
+        friend int addFive(Distance);   // also works here
+    };
+
+    int addFive(Distance d){
+        d.meter = 7;        // access private member
+        return d.meter;
+    }
+
+    int main(){
+
+        Distance D;
+        print("Distance: " << addFive(D));
+        return 0;
+    }

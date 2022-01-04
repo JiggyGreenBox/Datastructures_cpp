@@ -62,11 +62,13 @@ int main() {
     while(h1 != NULL){
         curr_node->next = h1;
         h1 = h1->next;
+        curr_node = curr_node->next;
     }
 
     while(h2 != NULL){
         curr_node->next = h2;
         h2 = h2->next;
+        curr_node = curr_node->next;
     }
 
     printList(temp_node->next);

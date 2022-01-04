@@ -1,6 +1,6 @@
 polymorphism
 		
-	Compile-time 						
+	Compile-time / overloading						
 		
 		Function overload
 			add(int i)		
@@ -13,7 +13,7 @@ polymorphism
 			operator + (Object const &obj){
 				Complex res
 				...
-				return res	
+				return res
 			}
 				
 
@@ -35,7 +35,7 @@ polymorphism
 
 
 	Run-time polymorphism / over-riding
-		implemented using inheritance
+		implemented using inheritance with virtual functions
 
 			Base class		-> function
 			Derived class	-> function
